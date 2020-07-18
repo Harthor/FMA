@@ -11,9 +11,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k*b$$!%hiswnhp2pad)6(u4x_g)r5w%@&zlv&@2hrz4#f3+#57'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '134.209.224.211']
+ALLOWED_HOSTS = ['fmajedrez.club', '66.97.46.213', 'vps-1795080-x.dattaweb.com', '127.0.0.1', '134.209.224.211', '192.168.0.104']
 
 
 # Application definition
@@ -35,8 +35,12 @@ INSTALLED_APPS = [
     'tinymce',
 
     'marketing',
-    'posts'
+    'posts',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -76,18 +80,22 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 if DEBUG:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+       'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'FMA',
+            'USER': 'admin',
+            'PASSWORD': '1234',
+            'HOST': 'localhost',
+            'PORT': '',
         }
     }
 else:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'blogdb',
-            'USER': 'blog_admin',
-            'PASSWORD': 'testing123',
+         'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'FMA',
+            'USER': 'admin',
+            'PASSWORD': '1234',
             'HOST': 'localhost',
             'PORT': '',
         }
@@ -129,11 +137,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = '/var/www/FMA/dream_blog/assets'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+MEDIA_ROOT = '/var/www/FMA/dream_blog/media'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+
 
 # Tinymce
 
@@ -164,8 +176,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': True,
 }
 
-MAILCHIMP_API_KEY = ''
-MAILCHIMP_DATA_CENTER = ''
+MAILCHIMP_API_KEY = '3e0aca362f177c4f40c1326417791928-us10'
+MAILCHIMP_DATA_CENTER = 'us10'
 MAILCHIMP_EMAIL_LIST_ID = ''
 
 # Django Allauth
@@ -176,3 +188,6 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+
+TINYMCE_JS_URL = os.path.join(MEDIA_URL, "path/to/tiny_mce/tiny_mce.js")
+
