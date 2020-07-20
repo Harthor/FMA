@@ -19,6 +19,7 @@ from posts.views import (
     PostDeleteView
 )
 from marketing.views import email_list_signup
+from rankings.views import PlayerListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +31,7 @@ urlpatterns = [
     path('post/<pk>/', PostDetailView.as_view(), name='post-detail'),
     path('post/<pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
+    path('rankings/', PlayerListView.as_view(), name='player-list'),
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
