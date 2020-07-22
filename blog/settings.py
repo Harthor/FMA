@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'posts',
     'ckeditor',
     'ckeditor_uploader',
-    'rankings'
+    'rankings',
+    'django_tables2'
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -68,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
