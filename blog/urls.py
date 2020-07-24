@@ -20,6 +20,11 @@ from posts.views import (
 )
 from marketing.views import email_list_signup
 from rankings.views import PlayerListView
+from autoridades.views import AutoridadListView
+from clubes.views import ClubListView
+from titulados.views import TituladoListView
+from torneos.views import TorneoListView
+from contacto.views import ContactoListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,8 +40,13 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-
+    path('autoridades/', AutoridadListView.as_view(), name='autoridad-list'),
+    path('clubes-asociados/', ClubListView.as_view(), name='club-list'),
+    path('calendario/', TorneoListView.as_view(), name='torneo-list'),
+    path('titulados/', TituladoListView.as_view(), name='titulado-list'),
+    path('contacto/', ContactoListView.as_view(), name='titulado-list'),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

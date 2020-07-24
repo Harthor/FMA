@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'rankings',
-    'django_tables2'
+    'django_tables2',
+    'autoridades',
+    'clubes',
+    'titulados',
+    'torneos',
+    'contacto',
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
