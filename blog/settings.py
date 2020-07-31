@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k*b$$!%hiswnhp2pad)6(u4x_g)r5w%@&zlv&@2hrz4#f3+#57'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['fmajedrez.club', '66.97.46.213', 'vps-1795080-x.dattaweb.com', '127.0.0.1', '134.209.224.211', '192.168.0.104']
 
@@ -145,12 +145,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_ROOT = '/home/harthor/FMA/FMA/assets'
+STATIC_ROOT = '/var/www/FMA/dream_blog/assets'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-MEDIA_ROOT = '/home/harthor/FMA/FMA/media'
+MEDIA_ROOT = '/var/www/FMA/dream_blog/media'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
