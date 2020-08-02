@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'contacto',
 ]
 
+DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
