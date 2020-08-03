@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 
@@ -9,6 +10,4 @@ class Autoridad(models.Model):
     
 
 
-    def __str__(self):
-        template = '{0.cargo} {0.name}'
-        return template.format(self)
+    

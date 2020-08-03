@@ -2,7 +2,12 @@ from django.shortcuts import render
 
 from .models import Autoridad
 from django.views.generic import ListView
+from .tables import AutoridadTable
 
-class AutoridadListView(ListView):
-    model = Autoridad
-    template_name = 'autoridades.html'
+def autoridad_list(request):
+
+    table = AutoridadTable(Autoridad.objects.all())
+
+    return render(request, "autoridades.html", {
+        "table": table
+    })
