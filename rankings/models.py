@@ -8,3 +8,4 @@ class Player(models.Model):
     name = models.CharField(max_length=254, null=True, blank=True,)
     ranking = models.IntegerField()
     elo = models.IntegerField(blank=True, null=True)
+    título = models.CharField(max_length=254, null=True, blank=True,)

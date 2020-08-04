@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django_tables2',
     'autoridades',
     'clubes',
-    'titulados',
     'torneos',
     'contacto',
 ]

@@ -1,8 +1,4 @@
 from django.shortcuts import render
-
-
-
-from django.shortcuts import render
 from .models import Club
 from django.views.generic import ListView
 

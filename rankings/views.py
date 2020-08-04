@@ -6,10 +6,10 @@ from .tables import PlayerTable
 
 def player_list(request):
         
-        table= PlayerTable(Player.objects.all())
+    table = PlayerTable(Player.objects.all())
 
         
-        return render(request, 'rankings.html', {
+    return render(request, 'rankings.html', {
             "table": table
             })
 

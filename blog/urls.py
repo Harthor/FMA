@@ -22,7 +22,6 @@ from marketing.views import email_list_signup
 from rankings.views import player_list
 from autoridades.views import autoridad_list
 from clubes.views import ClubListView
-from titulados.views import TituladoListView
 from torneos.views import TorneoListView
 from contacto.views import ContactoListView
 
@@ -43,7 +42,6 @@ urlpatterns = [
     path('autoridades/', autoridad_list, name='autoridad-list'),
     path('clubes-asociados/', ClubListView.as_view(), name='club-list'),
     path('calendario/', TorneoListView.as_view(), name='torneo-list'),
-    path('titulados/', TituladoListView.as_view(), name='titulado-list'),
     path('contacto/', ContactoListView.as_view(), name='titulado-list'),
 ]
 
