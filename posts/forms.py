@@ -1,16 +1,18 @@
 from django import forms
-from tinymce import TinyMCE
 from .models import Post, Comment
+from ckeditor.fields import RichTextField
+from ckeditor.widgets import CKEditorWidget
 
 
-class TinyMCEWidget(TinyMCE):
+
+""" class CKEditorWidget(TinyMCE):
     def use_required_attribute(self, *args):
-        return False
+        return False """
 
 
 class PostForm(forms.ModelForm):
     content = forms.CharField(
-        widget=TinyMCEWidget(
+        widget=CKEditorWidget(
             attrs={'required': False, 'cols': 30, 'rows': 10}
         )
     )

@@ -22,7 +22,8 @@
       <div class="navbar-header d-flex align-items-center justify-content-between">
         <!-- Navbar Brand -->
         <div style="display: flex;">
-        <img src="{% static 'img/FMA.png' %}" style="margin-right: 10px;"  width="40px" height="40px" alt="..." class="img-fluid"><a href="/" class="navbar-brand">Federación Mendocina de Ajedrez</a>
+          <div>
+        <img src="{% static 'img/FMA.png' %}" style="margin-right: 10px;"  width="40px" height="40px" alt="..." class="img-fluid"><a href="/" class="navbar-brand">Federación Mendocina de Ajedrez</a></div>
       </div>
         <!-- Toggle Button-->
         <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse"
@@ -32,25 +33,46 @@
       <!-- Navbar Menu -->
       <div id="navbarcollapse" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item" style="margin-left:15px;"><a href="/" class="nav-link ">Home</a>
+          <li class="nav-item" style="margin-left:15px;"><a href="/" class="nav-link" style="font-weight:bold">Home</a>
           </li>
-          <li class="nav-item"><a href="/blog" class="nav-link active ">Noticias</a>
-          </li>
-          <li class="nav-item"><a href="/autoridades" class="nav-link ">Autoridades</a>
-          </li>
-          <li class="nav-item"><a href="/clubes-asociados" class="nav-link ">Clubes Asociados</a>
-          </li>
-          <li class="nav-item"><a href="/rankings" class="nav-link ">Rankings</a>
-          </li>
+          
+          <li class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" style="background-color: ivory; color: black; border: transparent;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Más opciones
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <ul>
+              <li class="nav-item"><a href="/blog" class="nav-link active ">Noticias</a>
+              </li>
+              <li class="nav-item"><a href="/autoridades" class="nav-link ">Autoridades</a>
+              </li>
+              <li class="nav-item"><a href="/clubes-asociados" class="nav-link ">Clubes Asociados</a>
+              </li>
+              <li class="nav-item"><a href="/rankings" class="nav-link ">Rankings</a>
+              </li>
+              <li class="nav-item"><a href="/titulados" class="nav-link ">Titulados</a>
+              </li>
+              <li class="nav-item"><a href="/calendario" class="nav-link ">Calendario</a>
+              </li>
+              <li class="nav-item"><a href="#contacto" class="nav-link ">Contacto</a>
+              </li>
+              {% if user.is_staff %}
+              <li class="nav-item"><a href="/create" class="nav-link ">Crear</a>
+              </li>
+              {% endif %}
+            </ul>
+            </div>
+            {% if not user.is_authenticated %}
+            <li class="nav-item"><a href="/accounts/login" class="nav-link ">Iniciar Sesión</a>
+            </li>
+            {% endif %}
+            {% if  user.is_authenticated %}
+            <li class="nav-item"><a href="/accounts/logout" class="nav-link ">Cerrar Sesión</a>
+            </li>
+            {% endif %}
 
-          <li class="nav-item"><a href="/calendario" class="nav-link ">Calendario</a>
-          </li>
-          <li class="nav-item"><a href="#contacto" class="nav-link ">Contacto</a>
-          </li>
-          <!--  {% if request.user.is_staff %}
-          <li class="nav-item"><a href="#" class="nav-link ">Calendario</a>
-          </li>
-          {% endif %} -->
+          
+          
         </ul>
 
         <!-- <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>

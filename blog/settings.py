@@ -199,3 +199,4 @@ SITE_ID = 1
 
 TINYMCE_JS_URL = os.path.join(MEDIA_URL, "path/to/tiny_mce/tiny_mce.js")
 
+LOGIN_REDIRECT_URL = '/'
