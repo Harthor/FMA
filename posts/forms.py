@@ -16,10 +16,15 @@ class PostForm(forms.ModelForm):
             attrs={'required': False, 'cols': 30, 'rows': 10}
         )
     )
+    partida = forms.CharField(
+        widget=CKEditorWidget(
+            attrs={'required': False, 'cols': 30, 'rows': 10}
+        )
+    )
 
     class Meta:
         model = Post
-        fields = ('title', 'overview', 'content', 'thumbnail', 
+        fields = ('title', 'overview', 'content', 'partida', 'thumbnail', 
         'categories', 'featured', 'previous_post', 'next_post')
 
 
