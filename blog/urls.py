@@ -2,6 +2,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import TemplateView
+
 
 from posts.views import (
     index,
@@ -43,6 +45,7 @@ urlpatterns = [
     path('clubes-asociados/', ClubListView.as_view(), name='club-list'),
     path('calendario/', TorneoListView.as_view(), name='torneo-list'),
     path('contacto/', ContactoListView.as_view(), name='titulado-list'),
+    path('.well-known/pki-validation/06BC16DBEEC95DA86632EC6331A2EB65.txt', TemplateView.as_view(template_name='06BC16DBEEC95DA86632EC6331A2EB65.txt', content_type='text/plain'),)
 ]
 
 
